@@ -6,8 +6,8 @@ def consolidate_cart(cart)
     h[e.keys[0]] = e[e.keys[0]] # added the first key in the first element of array to the hash
     # check the (hash) to increase value if exist   
     h[e.keys[0]].include?(:count) ? h[e.keys[0]][:count] += 1 : h[e.keys[0]][:count] = 1
+  binding.pry
   end
-  # binding.pry
   # Return the hash
   h 
 end
