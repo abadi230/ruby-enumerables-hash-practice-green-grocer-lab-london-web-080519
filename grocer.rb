@@ -18,21 +18,34 @@ def apply_coupons(cart, coupons)
     coupon.each do |i, att|
       # ---> iterate value of hash i is key -> :item --- while att is value -> "AVOCADO"
       
+<<<<<<< HEAD
       # assign to variabls 
       name = coupon[:item]
       cart_price = cart[:price] , coupon_price = coupon[:cost], count_cart = cart[:count]
           num_coupon= coupon[:num]
           
+=======
+      name = coupon[:item]
+      
+>>>>>>> a5a2e05a2655de474cdc9c419e7117e4f94267e2
       if cart[name] && cart[name][:count] >= coupon[:num]
         # compair item in cart and coupon if true. and compair quantity in cart and coupon if eq or more 
         
         if cart["#{name} W/COUPON"] # if already have a coupon for this item in the cart
+<<<<<<< HEAD
           cart["#{name} W/COUPON"][:count] +=  num_coupon  #  increase :count by number of coupons. 
         else
           
           coupon[:cost] = coupon_price if cart[name][:count] > num_coupon
           
           cart["#{name} W/COUPON"] = {price: coupon_price / num_coupon, clearance: cart[name][:clearance], count: num_coupon} # set :count key equal to 1, since this is the first coupon for this item that we are adding to our cart.
+=======
+          cart["#{name} W/COUPON"][:count] += 1 #  increase :count by 1.. 
+        else
+          # total = cost / num
+          coupon[:cost] = 5 if cart[name][:count] > coupon[:num]
+          cart["#{name} W/COUPON"] = {price: coupon[:cost] / coupon[:num], clearance: cart[name][:clearance], count: coupon[:num]} # set :count key equal to 1, since this is the first coupon for this item that we are adding to our cart.
+>>>>>>> a5a2e05a2655de474cdc9c419e7117e4f94267e2
         end
         cart[name][:count] -= coupon[:num]
       end
